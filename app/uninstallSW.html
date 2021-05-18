@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            // alert("Uninstalling...");
+            // navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            //     for(let registration of registrations) {
+            //         registration.unregister()
+            //     }}).catch(function(err) {
+            //         //pass
+            //     });
+            alert("Installing new SW...");
+            navigator.serviceWorker.register("ServiceWorker").then(r => {
+                alert("Success");
+                alert(r);
+            }).catch(e => {
+                alert("Fail");
+                alert(e);
+            })
+        </script>
+    </body>
+</html>
