@@ -17,7 +17,7 @@ DOMAIN = "cyber-koko.herokuapp.com"
 
 @app.route("/")
 def index():
-    response = make_response(send_from_directory('./', filename="index.html"))
+    response = make_response(send_from_directory(path='./', filename="index.html"))
     return response
 
 @app.route("/attackOn")
@@ -84,34 +84,34 @@ def attack():
 
 @app.route("/indexeddb")
 def indexeddb():
-    response = make_response(send_from_directory('./', filename="indexedDB.html"))
+    response = make_response(send_from_directory(path='./', filename="indexedDB.html"))
     response.headers = HEADERS
     return response
 
 
 @app.route("/cooldown")
 def cooldown():
-    response = make_response(send_from_directory('./', filename="cooldown.html"))
+    response = make_response(send_from_directory(path='./', filename="cooldown.html"))
     response.headers = HEADERS
     return response
 
 @app.route("/createSW")
 def createSW():
-    response = make_response(send_from_directory('./', filename="createSW.html"))
+    response = make_response(send_from_directory(path='./', filename="createSW.html"))
     response.headers = HEADERS
     return response
 
 
 @app.route("/uninstallSW")
 def uninstallSW():
-    response = make_response(send_from_directory('./', filename="uninstallSW.html"))
+    response = make_response(send_from_directory(path='./', filename="uninstallSW.html"))
     response.headers = HEADERS
     return response
 
 @app.route("/ServiceWorker")
 def update():
     # sleep(5)
-    response = make_response(send_from_directory('./', filename="update.js"))
+    response = make_response(send_from_directory(path='./', filename="update.js"))
     response.headers = {
       'Content-Type': 'text/javascript;charset=UTF-8',
       'Access-Control-Allow-Origin': '*',
@@ -125,7 +125,7 @@ def payloadwithtoken(token):
     # sleep(5)
     global TOKEN, ATTACK
     if (ATTACK and TOKEN and (TOKEN==token)):
-        response = make_response(send_from_directory('./', filename="payload.html"))
+        response = make_response(send_from_directory(path='./', filename="payload.html"))
         ATTACK = False
         TOKEN = None
     else:
@@ -135,7 +135,7 @@ def payloadwithtoken(token):
 
 @app.route("/payload")
 def payload():
-    response = make_response(send_from_directory('./', filename="payload.js"))
+    response = make_response(send_from_directory(path='./', filename="payload.js"))
     response.headers = {
         'Content-Type': 'text/javascript;charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
